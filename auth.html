@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Přihlášení</title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
@@ -14,39 +14,49 @@
 </head>
 <body>
     <div class="container">
-        <form class="auth">
+        <form class="auth" id="auth-form">
             <div class="input-name-wrapper">
                 <label>Email</label>
-                <input class="input-name" type="email" placeholder="example@gmail.com">
+                <input class="input-name" type="email" name="email"placeholder="example@gmail.com"require>
             </div>
             <div class="input-password-wrapper">
                 <label>Password</label>
                 <div class="password-wrapper">
-                    <input class="input-password" type="password" id="password">
+                    <input class="input-password" type="password" id="password" name="password" required>
                     <button type="button" id="toggle-password">
                         <i class="fa-solid fa-eye"></i>
                     </button>
                 </div>
             </div>
-            <div class="checkbox-container">
-                <input class="checkbox" type="checkbox">
-                <p>I have read the terms and conditions.</p>
+            <div class="forgot-password-wrapper">
+                <a>Forgot password?</a>
             </div>
-            <button class="login-btn">Login</button>
+            <button class="login-btn" type="submit">Login</button>
         </form>
     </div>
 </body>
-<script>
+<script> /*otazka: je potreba davat tyto funkce do jednotlivych .js souboru?*/
     const passwordInput = document.getElementById("password");
     const toggleButton = document.getElementById("toggle-password");
     const icon = toggleButton.querySelector("i");
 
     toggleButton.addEventListener("click", () => {
         const isPassword = passwordInput.type === "password";
-
         passwordInput.type = isPassword ? "text" : "password";
         icon.classList.toggle("fa-eye");
         icon.classList.toggle("fa-eye-slash");
+    });
+
+    const form = document.getElementById("auth-form");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log("Email:", email);
+        console.log("Password:", password);
     });
 </script>
 </html>

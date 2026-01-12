@@ -6,6 +6,7 @@
     --bg: #bde8f5;
     --white: #EEEEEE;
 }
+/*-----------------------*/
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -45,11 +46,12 @@ body
 {
     width: 100vw; height: 100vh;
     font-family: "Roboto", sans-serif;
-    background-color: var(--bg);
+    background-color: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--white);
+    padding: 1rem;
 }
 .auth
 {
@@ -66,6 +68,7 @@ input
     border: 1px solid black;
     border-radius: 0.5rem;
     padding: 1rem 1rem;
+    max-width: 15rem;
 }
 .input-name-wrapper, .input-password-wrapper
 {
@@ -73,13 +76,13 @@ input
     flex-direction: column;
     gap: 0.5rem;
 }
-label
-{
-    font-weight: 600;
-}
 .input-name, .input-password
 {
     width: 100%;
+}
+label
+{
+    font-weight: 600;
 }
 .input-password-wrapper
 {
@@ -93,14 +96,13 @@ label
     background-color: rgba(0, 0, 0, 0);
     border: none;
 }
-.checkbox
+.forgot-password-wrapper
 {
-    width: 1rem;
+    text-align: center;
 }
-.checkbox-container
+.forgot-password-wrapper a
 {
-    display: flex;
-    gap: 1rem;
+    text-decoration: underline;
 }
 .login-btn
 {
@@ -110,5 +112,26 @@ label
     padding-block: 0.5rem;
     border: none;
     box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.241);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: 600;
 }
-
+.login-btn:hover
+{
+    background-color: var(--secondary);
+}
+.login-btn:active
+{
+    background-color: var(--tertiary);
+}
+@media (min-width: 320px) and (max-width: 680px)
+{
+    .auth
+    {
+        gap: 1rem;
+    }
+    .forgot-password-wrapper a
+    {
+        font-size: 0.75rem;
+    }
+}
