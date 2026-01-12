@@ -7,35 +7,38 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 </head>
 <body>
     <div class="container">
         <form class="auth">
-            <div class="input-name">
+            <div class="input-name-wrapper">
                 <label>Email</label>
-                <input type="email" placeholder="example@gmail.com">
+                <input class="input-name" type="email" placeholder="example@gmail.com">
             </div>
-            <div class="input-name">
+            <div class="input-password-wrapper">
                 <label>Password</label>
                 <div class="password-wrapper">
-                    <input type="password" id="password">
-                    <button type="button" id="togglePassword">
+                    <input class="input-password" type="password" id="password">
+                    <button type="button" id="toggle-password">
                         <i class="fa-solid fa-eye"></i>
                     </button>
                 </div>
             </div>
-            <div>
-                <input type="checkbox">
+            <div class="checkbox-container">
+                <input class="checkbox" type="checkbox">
                 <p>I have read the terms and conditions.</p>
             </div>
-            <button>Login</button>
+            <button class="login-btn">Login</button>
         </form>
     </div>
 </body>
 <script>
     const passwordInput = document.getElementById("password");
-    const toggleButton = document.getElementById("togglePassword");
+    const toggleButton = document.getElementById("toggle-password");
     const icon = toggleButton.querySelector("i");
 
     toggleButton.addEventListener("click", () => {
