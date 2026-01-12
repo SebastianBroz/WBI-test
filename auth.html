@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+</head>
+<body>
+    <div class="container">
+        <form class="auth">
+            <div class="input-name">
+                <label>Email</label>
+                <input type="email" placeholder="example@gmail.com">
+            </div>
+            <div class="input-name">
+                <label>Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password">
+                    <button type="button" id="togglePassword">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <input type="checkbox">
+                <p>I have read the terms and conditions.</p>
+            </div>
+            <button>Login</button>
+        </form>
+    </div>
+</body>
+<script>
+    const passwordInput = document.getElementById("password");
+    const toggleButton = document.getElementById("togglePassword");
+    const icon = toggleButton.querySelector("i");
+
+    toggleButton.addEventListener("click", () => {
+        const isPassword = passwordInput.type === "password";
+
+        passwordInput.type = isPassword ? "text" : "password";
+        icon.classList.toggle("fa-eye");
+        icon.classList.toggle("fa-eye-slash");
+    });
+</script>
+</html>
